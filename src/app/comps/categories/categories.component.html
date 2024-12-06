@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+<main class="flex px-4 mt-4">
+    
+    <div class="w-full  p-5 flex flex-wrap gap-3 justify-center mt-2 border-2">
+        @for( business of itemsall; track business){
+            <div class="card w-2/5 bg-base-100 shadow-xl mx-1">
+                <div class="card-header border-b-2 py-6">
+                    <h2 class="card-title justify-center text-gray-500 text-sm">
+                        <svg class="w-5 h-5 text-gray-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.8 13.938h-.011a7 7 0 1 0-11.464.144h-.016l.14.171c.1.127.2.251.3.371L12 21l5.13-6.248c.194-.209.374-.429.54-.659l.13-.155Z"/>
+                      </svg>
+                      {{business.location}}</h2>
+                </div>
+                <figure class="w-full">
+                    <img src="{{business.image}}" class="" alt="">
+                </figure>
+                <div class="card-body">
+                    
+                  <h2 class="card-title">{{business.name}}</h2>
+                  <p>{{business.description}}</p>
+                  <div class="card-actions mt-1 justify-between">
+                    <div class="rating">
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                    </div>
+                    <button class="btn btn-sm border-purple-600 bg-base-100 text-teal-600" routerLink='/service/{{business.name}}' routerLinkActive="router-link-active" >View more</button>
+                  </div>
+                </div>
+              </div>
+              
+        }
+        
+    
+       
+
+    </div>
+    <div class="sidebar  w-1/3 float p-3">
+        <div class="categories p-3">
+            <h1 class="font-extrabold text-2l divider divider-vertical ">Categories</h1>
+                <div class="flex gap-1 flex-wrap justify-even" >
+                  <button class = "btn   text-xs" [style]="{'border-color':'blue'}" (click)="getAll_B()">All</button>
+                    @for(category of fil; track $index;){
+                    <button class=" btn   text-xs" [style]="{'border-color': (color[$index])}" (click)="selectCategory(category)">{{category}}</button>
+                }
+                </div>  
+
+                
+                
+            
+            
+
+        </div>
+        <div class="sortby mt-2">
+            <h1 class="font-extrabold text-2l divider divider-vertical">Sort</h1>
+            <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-2">
+                  <input type="radio" name="radio-10" class="radio checked:bg-teal-500" checked />
+                  <span class="label-text">Recommended</span> 
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-2">
+                    <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked />
+                    <span class="label-text">Highest Rated</span> 
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-2">
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+                    <span class="label-text">Most Reviewed</span> 
+                </label>
+              </div>
+        </div>
+    </div>
+</main>
+<br>
+<div class="w-1/2 mt-5">
+    <mat-paginator #paginator  [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage" [hidePageSize]="true" (page)="pageChanged($event)"></mat-paginator>
+</div>
+
+
+<app-footer></app-footer>

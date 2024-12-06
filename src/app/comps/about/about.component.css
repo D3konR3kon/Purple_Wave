@@ -1,0 +1,53 @@
+
+.mv{
+    text-decoration: underline;
+    text-decoration-color: #afe0f3;
+    text-underline-offset: 20px;
+
+}
+.ms{
+    text-decoration: underline;
+    text-decoration-color: #f3bfaf;
+    text-underline-offset: 20px;
+
+}
+
+.cAbout{
+    position: relative;
+    height: 25rem;
+}
+.cAbout img{
+    
+    width: 300px;
+    height:300px;
+    
+}
+.aboutCards{
+    height: 25rem
+}
+
+
+/* Trending Section */
+.trending h1, .blockAbout {
+    width: 35rem;
+    font-family: "Hind", sans-serif;
+    /* border: 3px solid #9D2D77 ; */
+    border-radius: 10px;
+    text-decoration: underline;
+    text-decoration-color: #fd54c5;
+    text-underline-offset: 20px;
+    text-decoration-thickness: 4px;
+
+    
+    font-weight: 600;
+    background-image: linear-gradient(to left, #553c9a, #b380bf);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    
+}
+
+/* Animation */
+.animate-bounce {
+    animation: bounce 22s infinite;
+}
